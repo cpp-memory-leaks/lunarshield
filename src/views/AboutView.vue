@@ -159,8 +159,8 @@ section h2::after {
 }
 
 .value-icon img {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 

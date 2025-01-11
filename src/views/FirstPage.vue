@@ -43,22 +43,22 @@ const coreValues = [
   {
     title: '创新为先',
     description: '我们坚持技术领先，用全球前沿技术为用户带来高效、精准的健康体验。',
-    icon: '../src/assets/img/develop.png'
+    icon: '../assets/img/develop.png'
   },
   {
     title: '品质至上',
     description: '以严谨工艺和严格标准，确保每一枚智能戒指的卓越品质。',
-    icon: '../src/assets/img/quality.png'
+    icon: '../assets/img/quality.png'
   },
   {
     title: '客户关怀',
     description: '以用户需求为出发点，为每一位客户提供个性化的智能健康方案。',
-    icon: '../src/assets/img/customer.png'
+    icon: '../assets/img/customer.png'
   },
   {
     title: '可负担的健康',
     description: '我们以公平的成本，让更多人享受智能健康穿戴设备的好处。',
-    icon: '../src/assets/img/health.png'
+    icon: '../assets/img/health.png'
   }
 ];
 </script>

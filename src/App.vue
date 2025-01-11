@@ -28,7 +28,7 @@ onUnmounted(() => {
     </div>
     <div class="nav-menu">
       <RouterLink to="/" class="nav-link">首页</RouterLink>
-      <RouterLink to="/FirstPage" class="nav-link">公司介绍</RouterLink>
+      <RouterLink to="/AboutView" class="nav-link">公司介绍</RouterLink>
       <RouterLink to="/IndustryInformation" class="nav-link">行业信息</RouterLink>
       <RouterLink to="/Product" class="nav-link">产品</RouterLink>
       <RouterLink to="/RelatedTechnology" class="nav-link">相关技术</RouterLink>
