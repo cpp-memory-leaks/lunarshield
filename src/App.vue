@@ -3,17 +3,33 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
 
 const isScrolled = ref(false);
+const isMenuOpen = ref(false);
+const isMobile = ref(false);
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 20;
 };
 
+const checkScreenSize = () => {
+  isMobile.value = window.innerWidth <= 1024;
+  if (window.innerWidth > 1024) {
+    isMenuOpen.value = false;
+  }
+};
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', checkScreenSize);
+  checkScreenSize();
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('resize', checkScreenSize);
 });
 </script>
 
@@ -23,10 +39,9 @@ onUnmounted(() => {
   </div>
   <nav class="navbar" :class="{ 'navbar-scrolled': isScrolled }">
     <div class="nav-logo">
-      <!-- 这里可以添加你的logo -->
       <span class="logo-text">Lunarshield</span>
     </div>
-    <div class="nav-menu">
+    <div class="nav-menu" :class="{ 'nav-menu-active': isMenuOpen }">
       <RouterLink to="/" class="nav-link">首页</RouterLink>
       <RouterLink to="/AboutView" class="nav-link">公司介绍</RouterLink>
       <RouterLink to="/IndustryInformation" class="nav-link">行业信息</RouterLink>
@@ -35,6 +50,11 @@ onUnmounted(() => {
       <RouterLink to="/Support" class="nav-link">支持</RouterLink>
       <RouterLink to="/Login" class="nav-link">登录</RouterLink>
     </div>
+    <button class="menu-toggle" @click="toggleMenu" v-show="isMobile">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
   <main class="main-content">
   <RouterView v-slot="{ Component }">
@@ -49,7 +69,7 @@ onUnmounted(() => {
 :root {
   --primary-color: hsla(160, 100%, 37%, 1);
   --primary-hover: hsla(160, 100%, 37%, 0.8);
-  --nav-height: 70px;
+  --nav-height: 60px;
 }
 
 body {
@@ -66,7 +86,7 @@ body {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  padding: 0 6rem;
+  padding: 0 2rem;
   background: rgba(10, 10, 10, 0.3);
   backdrop-filter: blur(16px);
   display: flex;
@@ -83,7 +103,7 @@ body {
 }
 
 .nav-logo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.5px;
@@ -91,20 +111,20 @@ body {
 
 .nav-menu {
   display: flex;
-  gap: 3rem;
-
+  gap: 1.5rem;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
   position: relative;
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -137,10 +157,11 @@ body {
 }
 
 .main-content {
-  padding-top: var(--nav-height);
+  padding-top: calc(var(--nav-height) + 1rem);
   margin: 0 auto;
-  max-width: 1400px;
-  padding: var(--nav-height) 2rem 2rem;
+  max-width: 1200px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* 页面切换动画 */
@@ -209,6 +230,57 @@ body {
   .gradient-background {
     height: 100vh;
     background-size: 200% 200%;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.95);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  .nav-menu-active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.8rem;
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
