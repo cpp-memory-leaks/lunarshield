@@ -249,6 +249,8 @@ section h2 {
   width: 50px;
   height: 50px;
   margin: 0 auto 15px;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
 }
 
 .method-icon img {

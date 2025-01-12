@@ -17,7 +17,7 @@
               <p>来源：三星Galaxy Ring：重塑潮流之巅，科技与时尚的璀璨交融</p>
               <p>2024年09月10日 10:29:08 Citnews中文科技资讯</p>
             </div>
-            <button class="read-more-btn" @click="readMore">
+            <button class="read-more-btn" @click="openLink('http://www.citnews.com.cn/news/202409/185441.html')">
               阅读更多
               <span class="arrow">→</span>
             </button>
@@ -35,7 +35,7 @@
               <p>来源：苹果专利捧出智能戒指概念</p>
               <p>财联社 2024年09月02日 07:00 上海</p>
             </div>
-            <button class="read-more-btn" @click="readMore">
+            <button class="read-more-btn" @click="openLink('https://mp.weixin.qq.com/s/vOY5iJLP0lg-DJezQGDH5w')">
               阅读更多
               <span class="arrow">→</span>
             </button>
@@ -53,7 +53,7 @@
               <p>来源：小小智能戒指，凭什么成了可穿戴行业的"大家伙"？</p>
               <p>雷科技·2024-08-09 17:11</p>
             </div>
-            <button class="read-more-btn" @click="readMore">
+            <button class="read-more-btn" @click="openLink('https://www.36kr.com/p/2898526872755591')">
               阅读更多
               <span class="arrow">→</span>
             </button>
@@ -72,7 +72,7 @@
               <p>ShenzhenWare 知乎知识会员 深圳湾·新硬件·新智能·新生态</p>
               <p>发布于 2021-10-27 16:49</p>
             </div>
-            <button class="read-more-btn" @click="readMore">
+            <button class="read-more-btn" @click="openLink('https://zhuanlan.zhihu.com/p/426413923')">
               阅读更多
               <span class="arrow">→</span>
             </button>
@@ -83,9 +83,8 @@
   </template>
   
   <script setup>
-  const readMore = () => {
-    // 这里可以添加阅读更多的逻辑
-    console.log('阅读更多');
+  const openLink = (url) => {
+    window.open(url, '_blank'); // 在新标签页中打开链接
   };
   </script>
   
