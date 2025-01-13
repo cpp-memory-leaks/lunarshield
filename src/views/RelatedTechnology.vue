@@ -18,7 +18,7 @@
               <p>DeepTech深科技</p>
               <p>2023-07-02 22:28 发布于北京</p>
             </div>
-            <button class="read-more-btn" @click="readArticle(1)">
+            <button class="read-more-btn" @click="openLink('https://new.qq.com/rain/a/20230702A06EPX00')">
               阅读更多
               <span class="arrow">→</span>
             </button>
@@ -36,7 +36,7 @@
               <p>华为技术论坛</p>
               <p>2023-07-02</p>
             </div>
-            <button class="read-more-btn" @click="readArticle(2)">
+            <button class="read-more-btn" @click="openLink('https://consumer.huawei.com/cn/support/content/zh-cn15963854/')">
               阅读更多
               <span class="arrow">→</span>
             </button>
@@ -54,7 +54,7 @@
               <p>Argon科技</p>
               <p>2023-05-27 10:55 广东</p>
             </div>
-            <button class="read-more-btn" @click="readArticle(3)">
+            <button class="read-more-btn" @click="openLink('https://baijiahao.baidu.com/s?id=1767014263159168930')">
               阅读更多
               <span class="arrow">→</span>
             </button>
@@ -72,40 +72,20 @@
               <p>智能健康研究院</p>
               <p>2023-05-27</p>
             </div>
-            <button class="read-more-btn" @click="readArticle(4)">
+            <button class="read-more-btn" @click="openLink('https://www.thepaper.cn/newsDetail_forward_22507426')">
               阅读更多
               <span class="arrow">→</span>
             </button>
           </div>
         </article>
       </div>
-
-      <!-- 参考链接部分 -->
-      <section class="references-section">
-        <h2>技术参考</h2>
-        <div class="reference-links">
-          <a href="https://new.qq.com/rain/a/20230702A06EPX00" target="_blank" class="reference-link">
-            智能戒指技术发展报告
-          </a>
-          <a href="https://consumer.huawei.com/cn/support/content/zh-cn15963854/" target="_blank" class="reference-link">
-            华为穿戴技术白皮书
-          </a>
-          <a href="https://baijiahao.baidu.com/s?id=1767014263159168930" target="_blank" class="reference-link">
-            三星健康监测技术解析
-          </a>
-          <a href="https://www.thepaper.cn/newsDetail_forward_22507426" target="_blank" class="reference-link">
-            智能穿戴健康监测研究
-          </a>
-        </div>
-      </section>
     </div>
   </div>
 </template>
 
 <script setup>
-const readArticle = (id) => {
-  // 这里可以添加阅读文章的逻辑
-  console.log('Reading article:', id);
+const openLink = (url) => {
+  window.open(url, '_blank'); // 在新标签页中打开链接
 };
 </script>
 
