@@ -33,18 +33,6 @@
           </div>
         </div>
       </section>
-
-      <!-- 商务合作部分 -->
-      <section class="business-section">
-        <h2>商务合作</h2>
-        <div class="qr-codes">
-          <div class="qr-card">
-            <img src="../assets/img/wechat.png" alt="商务合作二维码" />
-            <p>扫码洽谈合作</p>
-          </div>
-        </div>
-      </section>
-
       <!-- 联系方式部分 -->
       <section class="contact-section">
         <h2>联系方式</h2>
@@ -75,7 +63,7 @@
                 <img src="../assets/img/wechat_logo.png" alt="微信" />
               </div>
               <p>微信</p>
-              <img class="qr-code" src="../assets/img/wechat.png" alt="微信二维码" />
+              <img class="qr-code" src="../assets/img/WeChatBusiness.jpg" alt="微信二维码" />
             </div>
 
             <div class="method-card">
